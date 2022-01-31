@@ -1,0 +1,7 @@
+log:
+  mode: console
+  level: debug
+  query:
+    detail: false
+  methods:
+    get: true

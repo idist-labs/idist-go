@@ -1,0 +1,8 @@
+mongo:
+  timeout: 10
+  username: admin
+  password: neosol1234
+  authSource: admin
+  host: 103.229.42.42
+  port: 5303
+  database: neosol

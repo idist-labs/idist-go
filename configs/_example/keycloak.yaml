@@ -1,0 +1,7 @@
+keycloak:
+  domain: http://113.160.44.242:8081
+  realm: master
+  client_id: apim-client
+  client_secret: stCn7L5PDyBFcKbnwg8FgomLhf8W7uv5
+  callback_url: https://core.test/auth/sso
+  countdown: 3

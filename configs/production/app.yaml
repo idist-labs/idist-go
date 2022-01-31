@@ -1,0 +1,14 @@
+app:
+  name: idist-go
+  env: development
+  debug: true
+  secret:
+    jwt: aCSnbH6B1ATyRIDkOS3pB9xXMwOza9m7XrPnceNNVXxwvkbqjXwqgTuFgD1j6GsA
+  server:
+    host: 0.0.0.0
+    port: 3000
+    log: true
+    domain: https://core.test
+    media: https://core.test
+    version: 2021.10.08.11.35
+
