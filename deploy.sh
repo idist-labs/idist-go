@@ -15,9 +15,10 @@ read_var() {
 }
 
 endpoint=$(read_var REGISTRY)
-sed -i -e "11 s/version: .*/version: $(date '+%Y.%m.%d.%H.%M')/" ./configs/production/app.yaml
+sed -i -e "13 s/version: .*/version: $(date '+%Y.%m.%d.%H.%M')/" ./configs/production/app.yaml
+rm ./configs/production/app.yaml-e
 sed -i -e "11 s/version: .*/version: $(date '+%Y.%m.%d.%H.%M')/" ./configs/development/app.yaml
+rm ./configs/development/app.yaml-e
 
 echo "Building and pushing dockerfile to $endpoint..."
 docker build -t $endpoint . && docker push $endpoint
-sleep 30

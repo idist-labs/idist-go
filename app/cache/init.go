@@ -1,10 +1,10 @@
 package cache
 
 import (
+	"ai-camera-api-cms/app/providers/redisProvider"
 	"encoding/json"
 	"fmt"
 	"github.com/go-redis/redis"
-	"idist-go/app/providers/redisProvider"
 	"time"
 )
 
@@ -12,23 +12,35 @@ type Cache struct {
 	Instance *redis.Client
 }
 
-func (u *Cache) Init() {
-	fmt.Println("Redis instance created")
-	u.Instance = redisProvider.GetClient()
+var cacheInstance *Cache
+
+func GetInstance() *Cache {
+	if cacheInstance == nil {
+		fmt.Println("Create instance redis cache")
+		cacheInstance = new(Cache)
+		cacheInstance.Instance = redisProvider.GetClient()
+	}
+
+	return cacheInstance
 }
 
-func (u *Cache) Get(key string) (interface{}, error) {
-	var result interface{}
+func (u *Cache) Get(key string, result interface{}) error {
 	if value, err := u.Instance.Get(key).Result(); err == nil {
-		err = json.Unmarshal([]byte(value), &result)
-		return result, err
+		return json.Unmarshal([]byte(value), &result)
 	} else {
-		return nil, err
+		return err
 	}
 }
 
-func (u *Cache) SetCache(key string, value string, duration int) error {
+func (u *Cache) Set(key string, value string, duration int) error {
 	return u.Instance.Set(key, value, time.Minute*time.Duration(duration)).Err()
+}
+func (u *Cache) SetInterface(key string, data interface{}, duration int) error {
+	value, err := json.Marshal(data)
+	if err != nil {
+		return err
+	}
+	return u.Instance.Set(key, value, time.Second*time.Duration(duration)).Err()
 }
 
 func (u *Cache) DelCache(key string) error {

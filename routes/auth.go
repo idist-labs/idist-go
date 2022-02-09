@@ -1,12 +1,13 @@
 package routes
 
 import (
+	"ai-camera-api-cms/app/controllers/auth"
+	"ai-camera-api-cms/app/middlewares"
 	"github.com/gin-gonic/gin"
-	"idist-go/app/controllers/auth"
 )
 
 func AuthRoutes(router *gin.RouterGroup) {
-	router.POST("/login", auth.PostLogin)
-	router.GET("/refresh-token", auth.GetRefreshToken)
-	router.POST("/logout", auth.PostLogout)
+	router.POST("/register", auth.AuthRegister)
+	router.POST("/login", middlewares.AuthMiddleware().LoginHandler)
+
 }

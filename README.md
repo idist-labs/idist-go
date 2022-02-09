@@ -1,2 +1,2 @@
-# idist-go
+# ai-camera-api-cms
 

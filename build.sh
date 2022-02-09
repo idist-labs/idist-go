@@ -7,10 +7,8 @@ fi
 package_name="api"
 
 platforms=(
-#"windows/386"
-#"darwin/amd64"
- "linux/386"
- )
+  "linux/386"
+)
 
 for platform in "${platforms[@]}"
 do
@@ -28,5 +26,4 @@ do
         echo 'An error has occurred! Aborting the script execution...'
         exit 1
     fi
-    echo "Built success for ${platform}"
 done

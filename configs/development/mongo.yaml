@@ -1,8 +1,8 @@
 mongo:
   timeout: 10
+  host: 113.160.44.242
+  port: 27017
   username: admin
-  password: neosol1234
+  password: admin
+  database: blog
   authSource: admin
-  host: 103.229.42.42
-  port: 5303
-  database: neosol

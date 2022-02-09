@@ -1,18 +1,16 @@
 package main
 
 import (
+	"ai-camera-api-cms/app/providers/configProvider"
+	"ai-camera-api-cms/app/providers/jobsProvider"
+	"ai-camera-api-cms/app/providers/loggerProvider"
+	"ai-camera-api-cms/app/providers/mongoProvider"
+	"ai-camera-api-cms/app/providers/redisProvider"
+	"ai-camera-api-cms/app/providers/routerProvider"
+	"ai-camera-api-cms/app/providers/socketProvider"
 	"flag"
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"idist-go/app/providers/configProvider"
-	"idist-go/app/providers/jobsProvider"
-	"idist-go/app/providers/loggerProvider"
-	"idist-go/app/providers/mysqlProvider"
-	"idist-go/app/providers/postgresProvider"
-	"idist-go/app/providers/redisProvider"
-	"idist-go/app/providers/routerProvider"
-	"idist-go/app/providers/socketProvider"
-	"idist-go/database/migrations"
 	"os"
 )
 
@@ -28,21 +26,15 @@ func main() {
 		gin.SetMode(gin.ReleaseMode)
 	}
 	r := gin.New()
-
 	configProvider.Init(*environment)
-	loggerProvider.Init()
-	// mongoProvider.Init()
-	// defer mongoProvider.CloseMongoDB()
-	mysqlProvider.Init()
-	postgresProvider.Init()
+	mongoProvider.Init()
 	redisProvider.Init()
 	jobsProvider.Init()
+	loggerProvider.Init()
 	routerProvider.Init(r)
-	socketProvider.Init(r)
+	socketProvider.Init()
 
-	if configProvider.GetConfig().GetBool("mysql.auto_migrate") {
-		migrations.Runner()
-	}
+	defer mongoProvider.CloseMongoDB()
 	///* Run server */
 	if err := r.Run(fmt.Sprintf("%s:%s",
 		configProvider.GetConfig().GetString("app.server.host"),

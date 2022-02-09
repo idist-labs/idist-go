@@ -34,6 +34,7 @@ func Init(env string) {
 	if err != nil {
 		log.Fatal("error on parsing configuration file", zap.Error(err))
 	}
+
 }
 
 func getConfigDir(env string) string {
@@ -43,7 +44,7 @@ func getConfigDir(env string) string {
 	} else {
 		configDir = filepath.Join(dir, "configs", env)
 	}
-	fmt.Println("configDir", configDir)
+
 	return configDir
 }
 
