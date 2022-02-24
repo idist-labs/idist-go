@@ -19,6 +19,8 @@ vendor/
 tmp
 logs
 config/*.yaml
+configs/development
+configs/production
 config/*.yaml-e
 public
 bin

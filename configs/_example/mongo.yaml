@@ -1,8 +1,8 @@
 mongo:
   timeout: 10
-  host: 113.160.44.242
+  host: localhost
   port: 27017
   username: admin
-  password: admin
+  password:
   database: blog
   authSource: admin

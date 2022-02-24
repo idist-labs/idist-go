@@ -1,8 +1,0 @@
-mongo:
-  timeout: 10
-  host: 113.160.44.242
-  port: 27017
-  username: admin
-  password: admin
-  database: blog
-  authSource: admin
