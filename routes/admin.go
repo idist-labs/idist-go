@@ -25,11 +25,6 @@ func AdminRoutes(router *gin.RouterGroup) {
 	router.GET("/wards/id", middlewares.Gate("", ""), admin.ReadWard)
 	router.PUT("/wards/id", middlewares.Gate("", ""), admin.UpdateWard)
 
-	router.GET("/villages", middlewares.Gate("", ""), admin.ListVillages)
-	router.POST("/villages", middlewares.Gate("", ""), admin.CreateVillage)
-	router.GET("/villages/id", middlewares.Gate("", ""), admin.ReadVillage)
-	router.PUT("/villages/id", middlewares.Gate("", ""), admin.UpdateVillage)
-
 	router.GET("/roles", middlewares.Gate("", ""), admin.ListRoles)
 	router.POST("/roles", middlewares.Gate("", ""), admin.CreateRole)
 	router.GET("/roles/:id", middlewares.Gate("", ""), admin.ReadRole)
@@ -42,30 +37,11 @@ func AdminRoutes(router *gin.RouterGroup) {
 	router.PUT("/users/:id", middlewares.Gate("", ""), admin.UpdateUser)
 	router.DELETE("/users/:id", middlewares.Gate("", ""), admin.DeleteUser)
 
-	router.GET("/areas", middlewares.Gate("", ""), admin.ListAreas)
-	router.POST("/areas", middlewares.Gate("", ""), admin.CreateArea)
-	router.GET("/areas/:id", middlewares.Gate("", ""), admin.ReadArea)
-	router.PUT("/areas/:id", middlewares.Gate("", ""), admin.UpdateArea)
-	router.DELETE("/areas/:id", middlewares.Gate("", ""), admin.DeleteArea)
-
-	// Notifications
-	router.GET("/notifications", middlewares.Gate("", ""), admin.ListNotifications)
-	router.POST("/notifications", middlewares.Gate("", ""), admin.CreateNotification)
-	router.GET("/notifications/:id", middlewares.Gate("", ""), admin.ReadNotification)
-	router.DELETE("/notifications/:id", middlewares.Gate("", ""), admin.DeleteNotification)
-
-	// Camera
-	router.GET("/cameras", middlewares.Gate("", ""), admin.ListCameras)
-	router.POST("/cameras", middlewares.Gate("", ""), admin.CreateCamera)
-	router.GET("/cameras/:id", middlewares.Gate("", ""), admin.ReadCamera)
-	router.PUT("/cameras/:id", middlewares.Gate("", ""), admin.UpdateCamera)
-	router.DELETE("/cameras/:id", middlewares.Gate("", ""), admin.DeleteCamera)
-
-	//API nhận thông tin Tracks và lấy link LIVE/PLAYBACK từ H-FACTOR
-	router.GET("/tracks/live/:id", middlewares.Gate("", ""), admin.LiveTrack)
-	router.GET("/tracks/view/:id/:time", middlewares.Gate("", ""), admin.ViewTrack)
-
-	// Analytics
-	router.GET("/securities/analytic-levels", middlewares.Gate("", ""), admin.AnalyticLevels)
+	// Categories
+	router.GET("/categories", middlewares.Gate("", ""), admin.ListCategories)
+	router.POST("/categories", middlewares.Gate("", ""), admin.CreateCategory)
+	router.GET("/categories/:id", middlewares.Gate("", ""), admin.GetCategory)
+	router.PUT("/categories/:id", middlewares.Gate("", ""), admin.UpdateCategory)
+	router.DELETE("/categories/:id", middlewares.Gate("", ""), admin.DeleteCategory)
 
 }

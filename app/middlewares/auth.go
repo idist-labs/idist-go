@@ -4,6 +4,7 @@ import (
 	"ai-camera-api-cms/app/collections"
 	"ai-camera-api-cms/app/controllers/auth"
 	"ai-camera-api-cms/app/providers/configProvider"
+	"fmt"
 	jwt "github.com/appleboy/gin-jwt/v2"
 	"github.com/gin-gonic/gin"
 	"log"
@@ -47,7 +48,7 @@ func Gate(Subject, Action string) gin.HandlerFunc {
 			c.Next()
 			return
 		}
-		//fmt.Println("Subject:" + Subject + " Action:" + Action)
+		fmt.Println("Subject:" + Subject + " Action:" + Action)
 		if _, exist := c.Get("user"); exist == true {
 			user = c.MustGet("user").(collections.User)
 		}

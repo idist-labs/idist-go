@@ -6,6 +6,7 @@ import (
 	"ai-camera-api-cms/app/controllers"
 	"ai-camera-api-cms/app/providers/configProvider"
 	"errors"
+	"fmt"
 	jwt "github.com/appleboy/gin-jwt/v2"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
@@ -85,10 +86,12 @@ func Authorizator(data interface{}, c *gin.Context) bool {
 			"deleted_at": nil,
 		}
 		if err = user.First(filter); err != nil {
+			fmt.Println(err)
 			return false
 		}
 		user.Preload("permissions")
 	}
+	fmt.Println(user.Lock, user.LoginFailedCount > cf.GetInt64("auth.login_fail"))
 	if user.Lock || user.LoginFailedCount > cf.GetInt64("auth.login_fail") {
 		return false
 	}

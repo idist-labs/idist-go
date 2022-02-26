@@ -40,7 +40,6 @@ type User struct {
 	Province              *Province          `bson:"-" json:"province"`
 	District              *District          `bson:"-" json:"district"`
 	Ward                  *Ward              `bson:"-" json:"ward"`
-	Village               *Village           `bson:"-" json:"village"`
 
 	CreatedAt time.Time          `bson:"created_at" json:"created_at"`
 	UpdatedAt time.Time          `bson:"updated_at" json:"updated_at"`
@@ -199,15 +198,6 @@ func (u *User) Preload(properties ...string) {
 				var ward Ward
 				_ = ward.First(bson.M{"_id": u.WardId, "deleted_at": nil})
 				u.Ward = &ward
-			}()
-		}
-		if property == "village" {
-			wg.Add(1)
-			go func() {
-				defer wg.Done()
-				var village Village
-				_ = village.First(bson.M{"_id": u.VillageId, "deleted_at": nil})
-				u.Village = &village
 			}()
 		}
 	}
