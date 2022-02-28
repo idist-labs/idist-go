@@ -1,10 +1,6 @@
 package auth
 
 import (
-	"ai-camera-api-cms/app/cache"
-	"ai-camera-api-cms/app/collections"
-	"ai-camera-api-cms/app/controllers"
-	"ai-camera-api-cms/app/providers/configProvider"
 	"errors"
 	"fmt"
 	jwt "github.com/appleboy/gin-jwt/v2"
@@ -14,6 +10,10 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"golang.org/x/crypto/bcrypt"
+	"idist-core/app/cache"
+	"idist-core/app/collections"
+	"idist-core/app/controllers"
+	"idist-core/app/providers/configProvider"
 	"net/http"
 	"strings"
 	"time"

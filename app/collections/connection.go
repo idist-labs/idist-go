@@ -1,8 +1,8 @@
 package collections
 
 import (
-	"ai-camera-api-cms/app/providers/mongoProvider"
 	"go.mongodb.org/mongo-driver/mongo"
+	"idist-core/app/providers/mongoProvider"
 	"time"
 )
 

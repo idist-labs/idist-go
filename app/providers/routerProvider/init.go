@@ -1,11 +1,11 @@
 package routerProvider
 
 import (
-	"ai-camera-api-cms/app/middlewares"
-	"ai-camera-api-cms/app/providers/configProvider"
-	"ai-camera-api-cms/routes"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"idist-core/app/middlewares"
+	"idist-core/app/providers/configProvider"
+	"idist-core/routes"
 )
 
 func Init(router *gin.Engine) {

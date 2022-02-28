@@ -1,10 +1,10 @@
 package cache
 
 import (
-	"ai-camera-api-cms/app/providers/redisProvider"
 	"encoding/json"
 	"fmt"
 	"github.com/go-redis/redis"
+	"idist-core/app/providers/redisProvider"
 	"time"
 )
 

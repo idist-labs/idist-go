@@ -1,7 +1,7 @@
 package helpers
 
 import (
-	"ai-camera-api-cms/app/providers/configProvider"
+	"idist-core/app/providers/configProvider"
 	"strconv"
 	"time"
 )

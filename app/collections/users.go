@@ -1,13 +1,13 @@
 package collections
 
 import (
-	"ai-camera-api-cms/app/providers/configProvider"
-	"ai-camera-api-cms/helpers"
 	"context"
 	"encoding/json"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo/options"
+	"idist-core/app/providers/configProvider"
+	"idist-core/helpers"
 	"sync"
 	"time"
 )

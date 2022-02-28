@@ -1,9 +1,9 @@
 package routes
 
 import (
-	"ai-camera-api-cms/app/controllers/admin"
-	"ai-camera-api-cms/app/middlewares"
 	"github.com/gin-gonic/gin"
+	"idist-core/app/controllers/admin"
+	"idist-core/app/middlewares"
 )
 
 func AdminRoutes(router *gin.RouterGroup) {

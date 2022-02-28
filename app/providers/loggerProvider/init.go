@@ -1,11 +1,11 @@
 package loggerProvider
 
 import (
-	"ai-camera-api-cms/app/providers/configProvider"
 	"fmt"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/natefinch/lumberjack.v2"
+	"idist-core/app/providers/configProvider"
 	"os"
 	"path/filepath"
 )

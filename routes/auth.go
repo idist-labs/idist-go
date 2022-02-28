@@ -1,9 +1,9 @@
 package routes
 
 import (
-	"ai-camera-api-cms/app/controllers/auth"
-	"ai-camera-api-cms/app/middlewares"
 	"github.com/gin-gonic/gin"
+	"idist-core/app/controllers/auth"
+	"idist-core/app/middlewares"
 )
 
 func AuthRoutes(router *gin.RouterGroup) {

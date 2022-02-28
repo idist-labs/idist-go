@@ -1,12 +1,12 @@
 package middlewares
 
 import (
-	"ai-camera-api-cms/app/collections"
-	"ai-camera-api-cms/app/controllers/auth"
-	"ai-camera-api-cms/app/providers/configProvider"
 	"fmt"
 	jwt "github.com/appleboy/gin-jwt/v2"
 	"github.com/gin-gonic/gin"
+	"idist-core/app/collections"
+	"idist-core/app/controllers/auth"
+	"idist-core/app/providers/configProvider"
 	"log"
 	"time"
 	// "fmt"

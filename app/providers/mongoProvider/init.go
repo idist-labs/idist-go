@@ -1,13 +1,13 @@
 package mongoProvider
 
 import (
-	"ai-camera-api-cms/app/providers/configProvider"
 	"context"
 	"fmt"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 	"go.uber.org/zap"
+	"idist-core/app/providers/configProvider"
 	"time"
 )
 

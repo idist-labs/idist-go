@@ -1,9 +1,9 @@
 package redisProvider
 
 import (
-	"ai-camera-api-cms/app/providers/configProvider"
 	"fmt"
 	"github.com/go-redis/redis"
+	"idist-core/app/providers/configProvider"
 )
 
 var client *redis.Client

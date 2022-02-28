@@ -1,16 +1,16 @@
 package main
 
 import (
-	"ai-camera-api-cms/app/providers/configProvider"
-	"ai-camera-api-cms/app/providers/jobsProvider"
-	"ai-camera-api-cms/app/providers/loggerProvider"
-	"ai-camera-api-cms/app/providers/mongoProvider"
-	"ai-camera-api-cms/app/providers/redisProvider"
-	"ai-camera-api-cms/app/providers/routerProvider"
-	"ai-camera-api-cms/app/providers/socketProvider"
 	"flag"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"idist-core/app/providers/configProvider"
+	"idist-core/app/providers/jobsProvider"
+	"idist-core/app/providers/loggerProvider"
+	"idist-core/app/providers/mongoProvider"
+	"idist-core/app/providers/redisProvider"
+	"idist-core/app/providers/routerProvider"
+	"idist-core/app/providers/socketProvider"
 	"os"
 )
 

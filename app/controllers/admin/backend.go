@@ -1,7 +1,7 @@
 package admin
 
 import (
-	"ai-camera-api-cms/app/providers/configProvider"
+	"idist-core/app/providers/configProvider"
 	"strings"
 
 	"github.com/gin-gonic/gin"

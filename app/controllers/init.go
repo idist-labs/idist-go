@@ -1,10 +1,10 @@
 package controllers
 
 import (
-	"ai-camera-api-cms/app/providers/configProvider"
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo/options"
+	"idist-core/app/providers/configProvider"
 	"strings"
 )
 

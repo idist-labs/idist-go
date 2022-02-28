@@ -1,10 +1,10 @@
 package collections
 
 import (
-	"ai-camera-api-cms/helpers"
 	"context"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo/options"
+	"idist-core/helpers"
 	"sync"
 	"time"
 )

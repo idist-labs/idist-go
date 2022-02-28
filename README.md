@@ -1,2 +1,2 @@
-# ai-camera-api-cms
+# idist-core
 

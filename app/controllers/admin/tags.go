@@ -1,14 +1,14 @@
 package admin
 
 import (
-	"ai-camera-api-cms/app/collections"
-	"ai-camera-api-cms/app/controllers"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+	"idist-core/app/collections"
+	"idist-core/app/controllers"
 	"net/http"
 )
 

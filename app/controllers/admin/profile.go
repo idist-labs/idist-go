@@ -1,13 +1,13 @@
 package admin
 
 import (
-	"ai-camera-api-cms/app/collections"
-	"ai-camera-api-cms/app/controllers"
 	"fmt"
 	jwt "github.com/appleboy/gin-jwt/v2"
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
+	"idist-core/app/collections"
+	"idist-core/app/controllers"
 	"net/http"
 )
 
