@@ -44,4 +44,11 @@ func AdminRoutes(router *gin.RouterGroup) {
 	router.PUT("/categories/:id", middlewares.Gate("", ""), admin.UpdateCategory)
 	router.DELETE("/categories/:id", middlewares.Gate("", ""), admin.DeleteCategory)
 
+	// Tags
+	router.GET("/tags", middlewares.Gate("", ""), admin.ListTags)
+	router.POST("/tags", middlewares.Gate("", ""), admin.CreateTag)
+	router.GET("/tags/:id", middlewares.Gate("", ""), admin.GetTag)
+	router.PUT("/tags/:id", middlewares.Gate("", ""), admin.UpdateTag)
+	router.DELETE("/tags/:id", middlewares.Gate("", ""), admin.DeleteTag)
+
 }
