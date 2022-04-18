@@ -1,7 +1,6 @@
 package admin
 
 import (
-	"fmt"
 	jwt "github.com/appleboy/gin-jwt/v2"
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson"
@@ -12,7 +11,6 @@ import (
 )
 
 func GetProfile(c *gin.Context) {
-	fmt.Println("[GetProfile]")
 	data := bson.M{}
 	var err error
 	entry := collections.User{}

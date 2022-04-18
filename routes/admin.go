@@ -51,4 +51,25 @@ func AdminRoutes(router *gin.RouterGroup) {
 	router.PUT("/tags/:id", middlewares.Gate("", ""), admin.UpdateTag)
 	router.DELETE("/tags/:id", middlewares.Gate("", ""), admin.DeleteTag)
 
+	// Articles
+	router.GET("/articles", middlewares.Gate("", ""), admin.ListArticles)
+	router.POST("/articles", middlewares.Gate("", ""), admin.CreateArticle)
+	router.GET("/articles/:id", middlewares.Gate("", ""), admin.GetArticle)
+	router.PUT("/articles/:id", middlewares.Gate("", ""), admin.UpdateArticle)
+	router.DELETE("/articles/:id", middlewares.Gate("", ""), admin.DeleteArticle)
+
+	// Schools
+	router.GET("/schools", middlewares.Gate("", ""), admin.ListSchools)
+	router.POST("/schools", middlewares.Gate("", ""), admin.CreateSchool)
+	router.GET("/schools/:id", middlewares.Gate("", ""), admin.ReadSchool)
+	router.PUT("/schools/:id", middlewares.Gate("", ""), admin.UpdateSchool)
+	router.DELETE("/schools/:id", middlewares.Gate("", ""), admin.DeleteSchool)
+
+	// Schools
+	router.GET("/admissions", middlewares.Gate("", ""), admin.ListAdmissions)
+	router.POST("/admissions", middlewares.Gate("", ""), admin.CreateAdmission)
+	router.GET("/admissions/:id", middlewares.Gate("", ""), admin.ReadAdmission)
+	router.PUT("/admissions/:id", middlewares.Gate("", ""), admin.UpdateAdmission)
+	router.DELETE("/admissions/:id", middlewares.Gate("", ""), admin.DeleteAdmission)
+
 }

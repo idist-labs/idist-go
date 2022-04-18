@@ -21,6 +21,7 @@ func Init(router *gin.Engine) {
 
 	routes.AdminRoutes(api.Group("admin"))
 	routes.AuthRoutes(api.Group("auth"))
+	routes.CommonRoutes(api.Group("common"))
 	fmt.Println("------------------------------------------------------------")
 
 }
