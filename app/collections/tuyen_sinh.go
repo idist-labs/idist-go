@@ -32,9 +32,6 @@ type TuyenSinh struct {
 	Class10         Class              `bson:"class_10" json:"class_10"`
 	Class11         Class              `bson:"class_11" json:"class_11"`
 	Class12         Class              `bson:"class_12" json:"class_12"`
-	CreatedAt       time.Time          `bson:"created_at" json:"created_at"`
-	UpdatedAt       time.Time          `bson:"updated_at" json:"updated_at"`
-	DeletedAt       *time.Time         `bson:"deleted_at" json:"deleted_at"`
 	Email           string             `bson:"email" json:"email"`
 	Phone           string             `bson:"phone" json:"phone"`
 	ParentPhone     string             `bson:"parent_phone" json:"parent_phone"`
@@ -45,8 +42,12 @@ type TuyenSinh struct {
 	Nganh5          Nganh              `bson:"nganh_5" json:"nganh_5"`
 	Nganh6          Nganh              `bson:"nganh_6" json:"nganh_6"`
 	KhaoSat         []KhaoSatItem      `bson:"khao_sat" json:"khao_sat"`
-	IssuePlace      Province           `bson:"-" json:"issue_place"`
+	IssuePlace      Province           `bson:"issue_place" json:"issue_place"`
 	Province        Province           `bson:"-" json:"province"`
+
+	CreatedAt time.Time  `bson:"created_at" json:"created_at"`
+	UpdatedAt time.Time  `bson:"updated_at" json:"updated_at"`
+	DeletedAt *time.Time `bson:"deleted_at" json:"deleted_at"`
 }
 
 type Student struct {
@@ -64,12 +65,12 @@ type Nganh struct {
 }
 type KhaoSatItem struct {
 	Name  string `bson:"name" json:"name"`
-	Value bool   `json:"value" json:"value"`
+	Value bool   `bson:"value" json:"value"`
 }
 type TuyenSinhs []TuyenSinh
 
 func (u *TuyenSinh) CollectionName() string {
-	return "tuyen_sinh"
+	return "admissions"
 }
 
 func (u *TuyenSinh) Find(filter interface{}, opts ...*options.FindOptions) (TuyenSinhs, error) {

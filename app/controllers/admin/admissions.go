@@ -21,9 +21,7 @@ func ListAdmissions(c *gin.Context) {
 	var err error
 	entries := collections.Admissions{}
 	entry := collections.Admission{}
-
 	pagination := controllers.BindRequestTable(c, "_id")
-
 	filter := pagination.CustomFilters(bson.M{})
 	if entries, err = entry.Find(filter); err != nil {
 		controllers.ResponseError(c, http.StatusInternalServerError, mongo.NOT_FOUND, err)
@@ -53,6 +51,7 @@ func ReadAdmission(c *gin.Context) {
 	data["entry"] = entry
 	controllers.ResponseSuccess(c, http.StatusOK, response.GET_SUCCESS, data)
 }
+
 func UpdateAdmission(c *gin.Context) {
 	data := bson.M{}
 	var err error
@@ -99,7 +98,7 @@ func CreateAdmission(c *gin.Context) {
 
 	data["entry"] = entry
 
-	controllers.ResponseSuccess(c, http.StatusOK, "Tạo mới từ khoá thành công", data)
+	controllers.ResponseSuccess(c, http.StatusOK, "Tạo mới thông tin thành công", data)
 }
 
 func DeleteAdmission(c *gin.Context) {
@@ -123,5 +122,5 @@ func DeleteAdmission(c *gin.Context) {
 		controllers.ResponseError(c, http.StatusInternalServerError, "Truy vấn dữ liệu lỗi", err)
 	}
 	data["entry"] = entry
-	controllers.ResponseSuccess(c, http.StatusOK, "Xoá từ khoá thành công", data)
+	controllers.ResponseSuccess(c, http.StatusOK, "Xoá thông tin thành công", data)
 }
