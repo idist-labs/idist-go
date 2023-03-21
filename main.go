@@ -27,11 +27,11 @@ func main() {
 	}
 	r := gin.New()
 	configProvider.Init(*environment)
+	loggerProvider.Init()
+	routerProvider.Init(r)
 	mongoProvider.Init()
 	redisProvider.Init()
 	jobsProvider.Init()
-	loggerProvider.Init()
-	routerProvider.Init(r)
 	socketProvider.Init()
 
 	defer mongoProvider.CloseMongoDB()

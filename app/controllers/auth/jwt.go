@@ -43,6 +43,7 @@ func PostLogin(c *gin.Context) (interface{}, error) {
 	}
 	// Truy vấn dữ liệu
 	if err = entry.First(filter); err != nil && err != mongo.ErrNoDocuments {
+		fmt.Println(err)
 		return nil, errors.New("Xử lý dữ liệu lỗi")
 	} else if err == mongo.ErrNoDocuments {
 		return nil, errors.New("Không tìm thấy tài khoản")

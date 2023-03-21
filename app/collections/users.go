@@ -7,6 +7,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"idist-core/app/providers/configProvider"
+	"idist-core/app/providers/loggerProvider"
 	"idist-core/helpers"
 	"sync"
 	"time"
@@ -53,7 +54,7 @@ type User struct {
 type Users []User
 
 func (u *User) CollectionName() string {
-	return "users"
+	return "Users"
 }
 
 func (u *User) String() string {
@@ -62,6 +63,7 @@ func (u *User) String() string {
 }
 
 func (u *User) First(filter bson.M) error {
+	loggerProvider.Logger.Info(u.CollectionName())
 	ctx, cancel := context.WithTimeout(context.Background(), QueryTimeOut)
 	defer cancel()
 	if result := DB().Collection(u.CollectionName()).FindOne(ctx, filter); result.Err() != nil {

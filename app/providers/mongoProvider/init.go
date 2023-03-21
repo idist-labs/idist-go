@@ -3,6 +3,7 @@ package mongoProvider
 import (
 	"context"
 	"fmt"
+	"go.mongodb.org/mongo-driver/event"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
@@ -42,7 +43,28 @@ func Init() {
 		)
 	}
 
-	clientOptions := options.Client().ApplyURI(uri)
+	cmdMonitor := &event.CommandMonitor{
+		Started: func(_ context.Context, evt *event.CommandStartedEvent) {
+			if configProvider.GetConfig().GetBool("log.query.detail") == true {
+				fmt.Println(evt.Command.String())
+			} else {
+				switch evt.CommandName {
+				case "find":
+					fmt.Println("db.getCollection(" + evt.Command.Lookup(evt.CommandName).String() + ").find(" + evt.Command.Lookup("filter").String() + ")")
+					return
+				case "insert":
+					fmt.Println("db.getCollection(" + evt.Command.Lookup(evt.CommandName).String() + ").insert(" + evt.Command.Lookup("documents").String() + ")")
+					return
+				case "update":
+					fmt.Println("db.getCollection(" + evt.Command.Lookup(evt.CommandName).String() + ").update(" + evt.Command.Lookup("updates").String() + ")")
+					return
+				default:
+					fmt.Println(evt.Command.String())
+				}
+			}
+		},
+	}
+	clientOptions := options.Client().ApplyURI(uri).SetMonitor(cmdMonitor)
 	if client, err := mongo.Connect(ctx, clientOptions); err != nil {
 		fmt.Println("Mongo: Lỗi kết nối")
 		panic(err)
