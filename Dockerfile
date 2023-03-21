@@ -1,5 +1,5 @@
 #Stage 1: Build source
-FROM golang:1.17.5 as build
+FROM golang:1.20.1 as build
 WORKDIR /app
 COPY ./ /app/
 RUN go mod tidy && go mod vendor

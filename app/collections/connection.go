@@ -11,6 +11,3 @@ const QueryTimeOut = 10 * time.Second
 func DB() *mongo.Database {
 	return mongoProvider.GetMongoDB()
 }
-
-type Repository interface {
-}

@@ -2,22 +2,20 @@ package routerProvider
 
 import (
 	"fmt"
+	"github.com/gin-contrib/requestid"
 	"github.com/gin-gonic/gin"
 	swaggerfiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"idist-core/app/middlewares"
-	"idist-core/app/providers/configProvider"
 	_ "idist-core/docs"
 	"idist-core/routes"
 )
 
 func Init(router *gin.Engine) {
 	fmt.Println("------------------------------------------------------------")
-	if configProvider.GetConfig().GetBool("app.server.log") {
-		router.Use(gin.Logger())
-	}
+	router.Use(requestid.New())
+	router.Use(middlewares.Logger())
 	router.Use(gin.Recovery())
-
 	router.Use(middlewares.CorsMiddleware())
 	router.Use(middlewares.ConfigsMiddleware())
 	//docs.SwaggerInfo.BasePath = "swagger/v1"

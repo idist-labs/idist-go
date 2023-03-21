@@ -5,6 +5,7 @@ go 1.20
 require (
 	github.com/appleboy/gin-jwt/v2 v2.6.4
 	github.com/bamzi/jobrunner v1.0.0
+	github.com/gin-contrib/requestid v0.0.6
 	github.com/gin-gonic/gin v1.9.0
 	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/spf13/viper v1.9.0
@@ -37,6 +38,7 @@ require (
 	github.com/go-stack/stack v1.8.0 // indirect
 	github.com/goccy/go-json v0.10.0 // indirect
 	github.com/golang/snappy v0.0.3 // indirect
+	github.com/google/uuid v1.3.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
